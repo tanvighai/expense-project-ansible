@@ -1,0 +1,33 @@
+  #setting up frontend
+   # install Nginx
+    #install a dnf package collection
+
+  - name: Frontend Setup
+    hosts: all
+    become: yes
+    tasks:
+      - name: Installing Nginx
+        ansible.builtin.dnf:
+          name: nginx
+          state: present
+
+
+     # - name: Removing old Nginx content(deleting the directory)
+      #  ansible.builtin.file:
+       #   path: /usr/share/nginx/html
+        #  state: absent
+
+      #- name: Placing Expense Config File in Nginx
+       # ansible.builtin.copy:
+        #  src: expense.conf
+         # dest: /etc/nginx/default.d/expense.conf
+
+
+
+
+
+   # start and enable Nginx
+    #Remove the default content that webserver is serving
+    #Download and extract and unzip the file the frontend file which is saved on the remote location
+    #create a file for writing the code for reverse proxy configuration
+    #Restart the server
