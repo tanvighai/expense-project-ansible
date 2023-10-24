@@ -27,10 +27,11 @@
           src: expense.conf
           dest: /etc/nginx/default.d/expense.conf
 
-      - name: Download frontend code
-        ansible.builtin.get_url:
-          url: https://expense-artifacts.s3.amazonaws.com/frontend.zip
-          dest: /tmp/frontend.zip
+      - name: Download frontend code and extract frontend code
+        ansible.builtin.unarchive:
+          src: https://expense-artifacts.s3.amazonaws.com/frontend.zip
+          dest: /usr/share/nginx/html
+          remote_src: yes
 
 
 
