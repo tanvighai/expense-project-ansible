@@ -40,7 +40,7 @@
           remote_src: yes
 
       - name: Starting Nginx Services
-        ansible.builtin.systemd:
+        ansible.builtin.systemctl:
           name: nginx
           state: restarted
           enabled: yes
