@@ -17,6 +17,10 @@
           name: nginx
           state: present
 
+      - name: Placing Expense Config File in Nginx
+        ansible.builtin.copy:
+          src: expense.conf
+          dest: /etc/nginx/default.d/expense.conf
 
       - name: Removing old Nginx content(deleting the directory)
         ansible.builtin.file:
@@ -27,14 +31,6 @@
         ansible.builtin.file:
           path: /usr/share/nginx/html
           state: directory
-
-
-      - name: Placing Expense Config File in Nginx
-        ansible.builtin.copy:
-          src: expense.conf
-          dest: /etc/nginx/default.d/expense.conf
-
-
 
       - name: Download frontend code and extract frontend code
         ansible.builtin.unarchive:
