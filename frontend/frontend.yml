@@ -17,10 +17,11 @@
           path: /usr/share/nginx/html
           state: absent
 
-      #- name: Placing Expense Config File in Nginx
-       # ansible.builtin.copy:
-        #  src: expense.conf
-         # dest: /etc/nginx/default.d/expense.conf
+      #Placing Expense Config File in Nginx
+      - name: Placing Expense Config File in Nginx
+        ansible.builtin.copy:
+          src: expense.conf
+          dest: /etc/nginx/default.d/expense.conf
 
 
 
