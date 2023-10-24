@@ -6,6 +6,7 @@
 
   #Placing Expense Config File in Nginx
   #Download and extract and unzip the file the frontend file which is saved on the remote location
+  # # start and enable Nginx
 
 
   - name: Frontend Setup
@@ -38,6 +39,10 @@
           dest: /usr/share/nginx/html
           remote_src: yes
 
+      - name: starting nginx service
+        ansible.builtin.systemd:
+          name: nginx
+          state: started
 
 
 
@@ -46,7 +51,8 @@
 
 
 
-    # start and enable Nginx
 
-    #create a file for writing the code for reverse proxy configuration
-    #Restart the server
+
+
+
+
