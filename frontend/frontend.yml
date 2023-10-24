@@ -3,7 +3,7 @@
     #install a dnf package collection
   #Remove the default content that webserver is serving means we delete the directory
   #create the file which you just deleted
-  -
+
   #Placing Expense Config File in Nginx
   #Download and extract and unzip the file the frontend file which is saved on the remote location
 
