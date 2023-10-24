@@ -42,7 +42,7 @@
 
       - name: Starting Nginx Service
         ansible.builtin.systemd:
-          name: nginx
+          name: nginx.service
           state: restarted
           enabled: yes
 
