@@ -1,6 +1,10 @@
   #setting up frontend
    # install Nginx
     #install a dnf package collection
+  #Remove the default content that webserver is serving
+  #Placing Expense Config File in Nginx
+  #Download and extract and unzip the file the frontend file which is saved on the remote location
+
 
   - name: Frontend Setup
     hosts: all
@@ -17,18 +21,26 @@
           path: /usr/share/nginx/html
           state: absent
 
-      #Placing Expense Config File in Nginx
+
       - name: Placing Expense Config File in Nginx
         ansible.builtin.copy:
           src: expense.conf
           dest: /etc/nginx/default.d/expense.conf
 
+      - name: Download frontend code
+        ansible.builtin.get_url:
+          url: https://expense-artifacts.s3.amazonaws.com/frontend.zip
+          dest: /tmp/frontend.zip
 
 
 
 
-   # start and enable Nginx
-    #Remove the default content that webserver is serving
-    #Download and extract and unzip the file the frontend file which is saved on the remote location
+
+
+
+
+
+    # start and enable Nginx
+
     #create a file for writing the code for reverse proxy configuration
     #Restart the server
