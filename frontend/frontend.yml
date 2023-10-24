@@ -23,15 +23,15 @@
           src: expense.conf
           dest: /etc/nginx/default.d/expense.conf
 
-      - name: Removing old Nginx content(deleting the directory)
-        ansible.builtin.file:
-          path: /usr/share/nginx/html
-          state: absent
+     # - name: Removing old Nginx content(deleting the directory)
+      #  ansible.builtin.file:
+       #   path: /usr/share/nginx/html
+        #  state: absent
 
-      - name: creating Nginx content directory
-        ansible.builtin.file:
-          path: /usr/share/nginx/html
-          state: directory
+      #- name: creating Nginx content directory
+       # ansible.builtin.file:
+        #  path: /usr/share/nginx/html
+         # state: directory
 
       - name: Download frontend code and extract frontend code
         ansible.builtin.unarchive:
