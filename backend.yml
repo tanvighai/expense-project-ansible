@@ -34,4 +34,23 @@
         src: https://expense-artifacts.s3.amazonaws.com/backend.zip
         dest: /app
         remote_src: yes
+    - name: install nodejs dependencies
+      ansible.builtin.shell: npm install
+      args:
+         chdir: /app
+
+    - name: install mysql client
+      ansible.builtin.dnf:
+        name: mysql
+
+    - name: load schema
+      ansible.builtin.shell: mysql -h m1.tanvi12online.net -uroot -pExpenseApp@1 < /app/schema/backend.sql
+
+    - name: start backend service
+      ansible.builtin.systemd:
+        name: backend
+        state: restarted
+        enabled: yes
+        daemon-reload: yes
+
 
