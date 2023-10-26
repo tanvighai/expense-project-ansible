@@ -33,6 +33,7 @@
         src: https://expense-artifacts.s3.amazonaws.com/backend.zip
         dest: /app
         remote_src: yes
+
     - name: install nodejs dependencies
       ansible.builtin.shell: npm install
       args:
