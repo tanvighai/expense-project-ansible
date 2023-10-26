@@ -8,10 +8,10 @@
   #Download and extract and unzip the file the frontend file which is saved on the remote location
   #start and enable Nginx
 
-- name: Frontend setup
-  hosts: all
-  become: yes
-  tasks:
+#- name: Frontend setup
+#  hosts: all
+#  become: yes
+#  tasks:
       - name: Installing Nginx
         ansible.builtin.dnf:
           name: nginx
