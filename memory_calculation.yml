@@ -13,8 +13,6 @@
 #store the output in the total and free variables with the help of filtering out the index values
     - name: Set facts
       ansible.builtin.set_fact:
-       # total: "{{ FREE[1] }}"
-        #free: "{{ FREE[3] }}"
         used_mem: "{{  100 - FREE[3]|int / FREE[1]|int * 100 }}"
     - name: Print free output
       ansible.builtin.debug:
