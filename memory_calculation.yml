@@ -4,20 +4,20 @@
     - name: memory good
       ansible.builtin.debug:
         msg: memory good
-      when: ansible_memory_mb ['real']['used]' / ansible_memory_mb ['real']['total']< 50
+      when: ansible_memory_mb ['real']['used]' / ansible_memory_mb ['real']['total'] < 50
 
 
     - name: memory Orange
       ansible.builtin.debug:
         msg: memory Orange
-      when: ansible_memory_mb ['real']['used]' / ansible_memory_mb ['real']['total'] >50 and ansible_memory_mb ['real']['used]' / ansible_memory_mb ['real']['total'] < 70
+      when: ansible_memory_mb ['real']['used]' / ansible_memory_mb ['real']['total'] > 50 and ansible_memory_mb ['real']['used]' / ansible_memory_mb ['real']['total'] < 70
 
 
 
     - name: memory red
       ansible.builtin.debug:
         msg: memory red
-      when: ansible_memory_mb ['real']['used]' / ansible_memory_mb ['real']['total'] > 50
+      when: ansible_memory_mb ['real']['used]' / ansible_memory_mb ['real']['total'] > 70
 
 
 
