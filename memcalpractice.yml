@@ -15,8 +15,8 @@
 #using set fact variable filter the index values of the free memory for total and free and calculate the used memory
     - name: set facts
       ansible.builtin.set_fact:
-        total: "{{ FREE[1] }}"
-        free: "{{ FREE[3] }}"
+       # total: "{{ FREE[1] }}"
+       # free: "{{ FREE[3] }}"
         used_mem: "{{ 100 - FREE[3]|int / FREE[1]|int * 100 }}"
 
     - name: Print the used_mem
