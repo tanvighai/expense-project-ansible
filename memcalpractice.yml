@@ -23,17 +23,17 @@
       ansible.builtin.debug:
         msg: "{{ used_mem }}"
 
-    - name: memory good
+    - name: Memory Good
       ansible.builtin.debug:
         msg: memory good
       when: used_mem|int > 50
 
-    - name: memory Orange
+    - name: Memory Orange
       ansible.builtin.debug:
         msg: memory Orange
       when: used_mem|int > 50 and used_mem|int < 70
 
-    - name: memory red
+    - name: Memory Red
       ansible.builtin.debug:
         msg: memory red
       when: used_mem|int > 70
