@@ -1,12 +1,33 @@
-- name: print used memory
+- name: Print Used Memory
   hosts: localhost
   tasks:
     - name: get memory
-      ansible.builtin.shell: free | grep Mem
+      ansible.builtin.shell: free | grep Mem | xargs
       register: free
+#print the memory information or current memory info
 
-    - name: print free variable
+    - name: set a fact
+      ansible.builtin.set_fact:
+        FREE: "{{ free.stdout | split (' ') }}"
+#organize the output in a list so that we can filter it out in the form of index values
+#store the output in the total and free variables with the help of filtering out theindex values
+    - name: Set facts
+      ansible.builtin.set_facts:
+        total: "{{ FREE[1] }}"
+        free: "{{ FREE[3] }}"
+
+    - name: Print free output
       ansible.builtin.debug:
-        msg: "{{ free.stdout }}"
+        msg: "{{ free|int / total|int }}"
 
-#since the output of the above is giving the extra data which is not needed so we will write code to get only stdout data
+
+    #where the [] gives the index value to be printed
+
+#split function is used to list the output into a single column
+# now we need to filter out one value for out for our calculation hence will save that list into a variable and access
+    #it after
+
+#since the output of the above is giving the extra data which is not needed
+  #so we will write code to get only stdout data or metadata
+
+
