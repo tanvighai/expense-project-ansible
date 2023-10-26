@@ -1,0 +1,42 @@
+#write a play to calculate the used memory percentage
+- name: Print Used memory
+  hosts: localhost
+  tasks:
+    #write a task to save the memory info into a register
+    - name: Print memory info #which is the memory info
+      ansible.builtin.shell: free | grep Mem |xargs
+      register: free
+#set the fact to get stdout info and make a list of it
+
+    - name: set fact
+      ansible.builtin.set_fact:
+        FREE: "{{ free.stdout | split (' ') }}"
+
+#using set fact variable filter the index values of the free memory for total and free and calculate the used memory
+    - name: set facts
+      ansible.builtin.set_fact:
+        total: "{{ FREE[1] }}"
+        free: "{{ FREE[3] }}"
+        used_mem: "{{ 100 - FREE[3]|int / FREE[1]|int * 100 }}"
+
+    - name: Print the used_mem
+      ansible.builtin.debug:
+        msg: "{{ used_mem }}"
+
+    - name: memory good
+      ansible.builtin.debug:
+        msg: memory good
+      when: used_mem|int > 50
+
+    - name: memory Orange
+      ansible.builtin.debug:
+        msg: memory Orange
+      when: used_mem|int > 50 and used_mem|int < 70
+
+    - name: memory red
+      ansible.builtin.debug:
+        msg: memory red
+      when: used_mem|int > 70
+
+
+
