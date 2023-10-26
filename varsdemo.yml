@@ -22,5 +22,5 @@
       ansible.builtin.debug:
       vars:
         url: play.example.com
-      msg: "{{ url }}"
+        msg: "{{ url }}"
 
