@@ -7,5 +7,6 @@
 
     - name: print free variable
       ansible.builtin.debug:
-        msg: "{{ free }}"
+        msg: "{{ free.stdout }}"
 
+#since the output of the above is giving the extra data which is not needed so we will write code to get only stdout data
