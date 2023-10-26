@@ -12,7 +12,7 @@
 #organize the output in a list so that we can filter it out in the form of index values
 #store the output in the total and free variables with the help of filtering out theindex values
     - name: Set facts
-      ansible.builtin.set_facts:
+      ansible.builtin.set_fact:
         total: "{{ FREE[1] }}"
         free: "{{ FREE[3] }}"
 
