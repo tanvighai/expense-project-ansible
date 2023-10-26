@@ -10,9 +10,17 @@
 - name: Print a variable
   hosts: localhost
   become: yes
+#variable declared on play level
   vars:
     url: example.com
   tasks:
     - name: Print variable
       ansible.builtin.debug:
         msg: "{{ url }}"
+
+    - name: Print a variable declared on task level
+      ansible.builtin.debug:
+      vars:
+        url: play.example.com
+        msg: "{{ url }}"
+
