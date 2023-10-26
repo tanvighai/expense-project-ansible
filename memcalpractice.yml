@@ -19,14 +19,14 @@
        # free: "{{ FREE[3] }}"
         used_mem: "{{ 100 - FREE[3]|int / FREE[1]|int * 100 }}"
 
-    - name: Print the used_mem
+    - name: Print the output
       ansible.builtin.debug:
         msg: "{{ used_mem }}"
 
     - name: Memory Good
       ansible.builtin.debug:
         msg: memory good
-      when: used_mem|int > 50
+      when: used_mem|int < 50
 
     - name: Memory Orange
       ansible.builtin.debug:
