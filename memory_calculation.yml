@@ -23,18 +23,18 @@
     - name: Memory good
       ansible.builtin.debug:
         msg: memory good
-      when: used_mem < 50
+      when: used_mem|int < 50
 
 
     - name: Memory orange
       ansible.builtin.debug:
         msg: memory orange
-      when: used_mem > 50 and used_mem < 70
+      when: used_mem|int > 50 and used_mem|int < 70
 
     - name: Memory red
       ansible.builtin.debug:
           msg: memory red
-      when: used_mem >70
+      when: used_mem|int >70
 
 
     #where the [] gives the index value to be printed
