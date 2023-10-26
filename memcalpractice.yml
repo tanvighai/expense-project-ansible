@@ -5,7 +5,7 @@
     #write a task to save the memory info into a register
     - name: Print memory info #which is the memory info
       ansible.builtin.shell: free | grep Mem |xargs
-      register: free
+      register: Free
 #set the fact to get stdout info and make a list of it
 
     - name: set fact
