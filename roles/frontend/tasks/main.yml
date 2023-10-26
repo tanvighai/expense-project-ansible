@@ -9,7 +9,7 @@
   # # start and enable Nginx
 
 
-  - name: Frontend Setup
+  - name: Frontend setup
     hosts: all
     become: yes
     tasks:
