@@ -5,3 +5,14 @@
     - name: print a message
       ansible.builtin.debug:
         msg: hello Tanvi
+
+
+- name: Print a variable
+  hosts: localhost
+  become: yes
+  vars:
+    url: example.com
+  tasks:
+    - name: Print variable
+      ansible.builtin.debug:
+        msg: "{{ url }}"
