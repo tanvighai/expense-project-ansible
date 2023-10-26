@@ -6,7 +6,8 @@
 
   #Placing Expense Config File in Nginx
   #Download and extract and unzip the file the frontend file which is saved on the remote location
-  # # start and enable Nginx
+  #start and enable Nginx
+
 - name: Frontend setup
   hosts: all
   become: yes
