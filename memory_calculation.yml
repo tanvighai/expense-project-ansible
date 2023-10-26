@@ -23,7 +23,7 @@
     - name: Memory good
       ansible.builtin.debug:
         msg: memory good
-      when: used_mem <50
+      when: used_mem < 50
 
 
     - name: Memory orange
