@@ -2,11 +2,19 @@
 #  hosts: all
 #  become: yes
 #  tasks:
+#verify nodejs in the system
+    - name: verify nodejs
+      ansible.builtin.shell: type npm
+      register: npm
+
     - name: Install NodeJS
       ansible.builtin.shell: curl -sL https://rpm.nodesource.com/setup_lts.x | bash
+      when: npm.rc != 0
+
     - name: Install nodeJS
       ansible.builtin.dnf:
         name: nodejs
+      when: npm.rc != 0
 
     - name: copy Backend service file
       ansible.builtin.copy:
