@@ -60,7 +60,7 @@
         name: mysql
 
     - name: load schema
-      ansible.builtin.shell: mysql -h "{{ lookup('amazon.aws.aws_ssm', 'expense.backend.DB_HOST', region='us-east-1' ) }}" -uroot -p"{{ lookup('amazon.aws.aws_ssm', 'expense.backend.mysql_PASS', region='us-east-1' ) }}" < /app/schema/backend.sql
+      ansible.builtin.shell: mysql -h "{{ lookup('amazon.aws.aws_ssm', 'expense.backend.DB_HOST', region='us-east-1' ) }}" -uroot -p"{{ lookup('amazon.aws.aws_ssm', 'expense.backend.DB_PASS', region='us-east-1' ) }}" < /app/schema/backend.sql
 
     - name: start backend service
       ansible.builtin.systemd:
