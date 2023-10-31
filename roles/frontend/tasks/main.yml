@@ -22,10 +22,10 @@
           src: expense.conf
           dest: /etc/nginx/default.d/expense.conf
 
-      - name: Update Nginx Config
-        ansible.builtin.template:
-            src: nginx.conf
-            dest: /etc/nginx/nginx.conf
+#      - name: Update Nginx Config
+#        ansible.builtin.template:
+#            src: nginx.conf
+#            dest: /etc/nginx/nginx.conf
 
 #      - name: Removing old Nginx content(deleting the directory)
 #        ansible.builtin.file:
