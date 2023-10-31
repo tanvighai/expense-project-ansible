@@ -5,6 +5,6 @@
     - "{{ role_name }}"
 
 
-    - name: load a parameter from parameter store
-      ansible.builtin.debug:
-        msg: "{{ lookup('amazon.aws.aws_ssm', 'expense-frontend.backend_url', region='us-east-1' ) }}"
+#    - name: load a parameter from parameter store
+#      ansible.builtin.debug:
+#        msg: "{{ lookup('amazon.aws.aws_ssm', 'expense-frontend.backend_url', region='us-east-1' ) }}"

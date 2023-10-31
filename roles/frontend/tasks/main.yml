@@ -55,7 +55,7 @@
           name: nginx.service
           state: restarted
           enabled: yes
-          #remote_src: yes
+          remote_src: yes
 
 
 
