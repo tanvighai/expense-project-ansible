@@ -2,6 +2,9 @@
 #  hosts: all
 #  become: yes
 #  tasks:
+    - name: set hostname
+      ansible.builtin.shell: set-hostname mysql
+
     - name: copy mysql repo file
       ansible.builtin.copy:
         src: mysql.repo

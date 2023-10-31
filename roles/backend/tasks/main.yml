@@ -42,7 +42,8 @@
 #        src: https://expense-artifacts.s3.amazonaws.com/backend.zip
 #        dest: /app
 #        remote_src: yes
-
+    - name: set hostname
+      ansible.builtin.shell: set-hostname backend
 
     - name: include app pre-requisites
       ansible.builtin.import_role:

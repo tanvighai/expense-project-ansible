@@ -12,6 +12,9 @@
 #  hosts: all
 #  become: yes
 #  tasks:
+
+      - name: set hostname
+        ansible.builtin.shell: set-hostname frontend
       - name: Installing Nginx
         ansible.builtin.dnf:
           name: nginx
