@@ -22,6 +22,11 @@
           src: expense.conf
           dest: /etc/nginx/default.d/expense.conf
 
+      - name: Update Nginx Config
+        ansible.builtin.template:
+            src: nginx.conf
+            dest: /etc/nginx/nginx.conf
+
 #      - name: Removing old Nginx content(deleting the directory)
 #        ansible.builtin.file:
 #          path: /usr/share/nginx/html
@@ -37,6 +42,12 @@
 #          src: https://expense-artifacts.s3.amazonaws.com/frontend.zip
 #          dest: /usr/share/nginx/html
 #          remote_src: yes
+
+
+      - name: Include App Pre-requisites
+        ansible.builtin.import_role:
+          name: common
+          tasks_from: app_prerequisites
 
 
       - name: Starting Nginx Service
